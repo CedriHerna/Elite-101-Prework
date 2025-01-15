@@ -2,7 +2,7 @@
 
 print("Welcome to the Perico Logistics ChatBot!")
 name = input("What is your name?\n")
-age = input("Hello " + name + ", how old are you?\n")
+age = input(f"Hello {name}, how old are you?\n")
 
 # /*
 # The lines above are the basic greetings asking for both a name and age.
