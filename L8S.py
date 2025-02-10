@@ -10,4 +10,3 @@ def contains_digits(a_string):
     return False
 
 print(contains_digits(a_string))
-        
