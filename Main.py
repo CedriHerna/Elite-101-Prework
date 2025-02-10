@@ -1,5 +1,19 @@
+import random
 # My project is going to be a chatbot that has to help a customer return or exhange an item
+
+# This is an array that has the list of clothing items
+clothing_list = ["Shirt", "Shirt", "Skirt", "Pants", "Dress"]
+
+# This is going to randomize a number and then randomly give the user an item.
  
+# random reciept number generator
+random_reciept_num = random.randint(1, 100)
+# random clothing item
+random_item = random.choice(clothing_list)
+
+print("This is an example recipt you will have.")
+
+
 
 print("Welcome to the Perico's Clothing ChatBot!")
 name = input("What is your name?\n")
