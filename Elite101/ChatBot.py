@@ -4,22 +4,24 @@ import random
 # This is an array that has the list of clothing items
 clothing_list = ["Shirt", "Shirt", "Skirt", "Pants", "Dress"]
 
+clothing_dictionary = {"Shirt" : 4.00, "shorts" : 3.25, "Skirt" : 3.25, "Pants" : 4.00, "Dress" : 6.00}
+
 # This is going to randomize a number and then randomly give the user an item.
  
 # random reciept number generator
 random_reciept_num = random.randint(1, 100)
+
 # random clothing item
 random_item = random.choice(clothing_list)
 
-print("This is an example recipt you will have.")
+print(f"This is an example recipt you will have. \nReciept Number: {random_reciept_num}\nItem: {random_item}")
 
 
 
-print("Welcome to the Perico's Clothing ChatBot!")
+print("\n\nWelcome to the Perico's Clothing ChatBot!")
 name = input("What is your name?\n")
 age = input(f"Hello {name}, how old are you?\n")
 
-# hello
 # /*
 # The lines above are the basic greetings asking for both a name and age.
 # */
@@ -36,10 +38,7 @@ print("\nWould you like to return or exhange an item? Type the number of option 
 # 2. Exchange - 
 array_options = ["1. Help me return my item.", "2. Help me exhange my item.", "3. Exit the chatbot."]
 
-def user_clothing():
-    
-    print("What sort of clothing do you have? Is it a shirt, short, skirt, dress, or hoodie?")
-    
+
 
 
 def user_choice():
@@ -51,7 +50,9 @@ def user_choice():
 
     
     if(choice == "1"):
-        reciept = input("Please enter ")
+        reciept = input("Please enter the reciept number to confirm your purchase: ")
+    elif(choice == 2):
+        # asdf
     elif(choice == "3"):
         print("Have a great day, " + name + "!")
     else:
