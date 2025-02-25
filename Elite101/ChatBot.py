@@ -121,7 +121,8 @@ def exchange_items():
 
     while(True):
         count = 0
-        exchange_item = input()
+        exchange_item = input().capitalize()
+        breakpoint()
 
 
         for item in clothing_dictionary:
@@ -129,15 +130,17 @@ def exchange_items():
             if(item == exchange_item):
                 count += 1
         
-        if(count > 1):
+        if(count >= 1):
             break
 
         else:
             print("Please enter the name of the item you want to exhange.")
 
-        exchange_number = random.randint(5000, 7500)
-    
+        
+    exchange_number = random.randint(5000, 7500)
+
     print(f"Wonderful! Please go to any close Perico Clothing hub and show them this confirmation code at the return desk: {exchange_number}")
+    print("\n\n")
        
 
 
