@@ -7,7 +7,7 @@ clothing_list = ["Shirt", "Shirt", "Skirt", "Pants", "Dress"]
 # To return an item, the user needs a list of return locations
 return_hubs = ["Austin", "Round Rock", "Pflugerville", "Georgetown", "Cedar Park"]
 
-clothing_dictionary = {"Shirt" : 4.00, "shorts" : 3.25, "Skirt" : 3.25, "Pants" : 4.00, "Dress" : 6.00}
+clothing_dictionary = {"Shirt" : 4.00, "Shorts" : 3.25, "Skirt" : 3.25, "Pants" : 4.00, "Dress" : 6.00}
 
 # This is going to randomize a number and then randomly give the user an item.
  
@@ -54,10 +54,9 @@ def user_choice():
     
     if(choice == "1"):
         return_item()
-
-    elif(choice == 2):
-        print("Fortnite baby")
-    elif(choice == 3):
+    elif(choice == "2"):
+        exchange_items()
+    elif(choice == "3"):
         print("Confirmation and exchange stuffs.")
     elif(choice == "4"):
         print("Have a great day, " + name + "!")
@@ -93,12 +92,12 @@ def return_item():
         else:
             confirmation = input("Please reenter your response as either \"Yes\" or \"No\".")
     
-    confirmation_number = random.randint(0,10000)
-    print(f"Wonderful! Please go to any close Perico Clothing hub and show them this confirmation code at the return desk: {confirmation_number}")
+    confirmation_number = random.randint(7501,10000)
+    print(f"Wonderful! Please go to any close Perico Clothing hub and show them this confirmation code at the return desk: {confirmation_number} to return your item.")
     print("\n\n")
 
 
-def exchange_item():
+def exchange_items():
 
     reciept = input("Please enter the reciept number to confirm your purchase. If you chose the wrong option, type exit. ").lower()
 
@@ -113,11 +112,39 @@ def exchange_item():
         else:
             reciept = input("Unknown reciept. Please try again. *Enter the receipt number that is at the very top of the terminal* ")
 
-    print("What item would you like to exhange for? You can only exhange for an item less or equal to the return value of your item")
+    print("What item would you like to exhange for? You can only exhange for an item less or equal to the return value of your item\n")
 
     for i, item in enumerate(clothing_dictionary):
 
-        print(f"{i}, {item}")
+        i += 1
+        print(f"{i}, {item} price: ${clothing_dictionary[item]}")
+
+    while(True):
+        count = 0
+        exchange_item = input()
+
+
+        for item in clothing_dictionary:
+
+            if(item == exchange_item):
+                count += 1
+        
+        if(count > 1):
+            break
+
+        else:
+            print("Please enter the name of the item you want to exhange.")
+
+        exchange_number = random.randint(5000, 7500)
+    
+    print(f"Wonderful! Please go to any close Perico Clothing hub and show them this confirmation code at the return desk: {exchange_number}")
+       
+
+
+
+
+    
+
 
 
 user_choice()
