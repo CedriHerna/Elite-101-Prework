@@ -17,6 +17,9 @@ random_reciept_num = random.randint(1, 100)
 # random clothing item
 random_item = random.choice(clothing_list)
 
+
+
+
 print(f"This is an example recipt you will have. \nReciept Number: {random_reciept_num}\nItem: {random_item}")
 
 
@@ -24,6 +27,9 @@ print(f"This is an example recipt you will have. \nReciept Number: {random_recie
 print("\n\nWelcome to the Perico's Clothing ChatBot!")
 name = input("What is your name?\n")
 age = input(f"Hello {name}, how old are you?\n")
+confirmation_number = -1
+exchange_number = -1
+
 
 # /*
 # The lines above are the basic greetings asking for both a name and age.
@@ -45,27 +51,33 @@ array_options = ["1. Help me return my item.", "2. Help me exhange my item.", "3
 
 
 def user_choice():
-    
-    for option in array_options:
-        print(option)
 
-    choice = input("\n")
-
+    choice = -1
     
-    if(choice == "1"):
-        return_item()
-    elif(choice == "2"):
-        exchange_items()
-    elif(choice == "3"):
-        print("Confirmation and exchange stuffs.")
-    elif(choice == "4"):
-        print("Have a great day, " + name + "!")
-    else:
-        print("Return a valid response (Just the number at the start of each option. Eg. \"1\")")
+    while(choice != 4):
+        for option in array_options:
+            print(option)
+
+
+        choice = input("\n")
+
+
+        if(choice == "1"):
+            return_item()
+        elif(choice == "2"):
+            exchange_items()
+        elif(choice == "3"):
+            confirmation_and_exchange_numbers()
+        elif(choice == "4"):
+            print("Have a great day, " + name + "!")
+        else:
+            print("Return a valid response (Just the number at the start of each option. Eg. \"1\")")
 
 
 def return_item():
     
+    global confirmation_number
+
     reciept = input("Please enter the reciept number to confirm your purchase. If you chose the wrong option, type exit. ").lower()
 
     while(True):   #Looping indefinetly so the user can punch in the right code.
@@ -95,9 +107,14 @@ def return_item():
     confirmation_number = random.randint(7501,10000)
     print(f"Wonderful! Please go to any close Perico Clothing hub and show them this confirmation code at the return desk: {confirmation_number} to return your item.")
     print("\n\n")
+    
+
+    
 
 
 def exchange_items():
+
+    global exchange_number
 
     reciept = input("Please enter the reciept number to confirm your purchase. If you chose the wrong option, type exit. ").lower()
 
@@ -105,7 +122,7 @@ def exchange_items():
 
         if(reciept == "exit"):
             print("Exiting to home page.")
-            return       #Allows me to skip to rest of the code after this while loop and return to the main function.
+            return      #Allows me to skip to rest of the code after this while loop and return to the main function.
         elif(int(reciept) == random_reciept_num):
             print(f"Thank you for your confirmation. You are trying to exchange your {random_item} for another item.")
             break
@@ -122,7 +139,7 @@ def exchange_items():
     while(True):
         count = 0
         exchange_item = input().capitalize()
-        breakpoint()
+        
 
 
         for item in clothing_dictionary:
@@ -141,14 +158,32 @@ def exchange_items():
 
     print(f"Wonderful! Please go to any close Perico Clothing hub and show them this confirmation code at the return desk: {exchange_number}")
     print("\n\n")
+    
        
 
+def confirmation_and_exchange_numbers():
+    
+    
+    if(confirmation_number == -1):
 
+        if(exchange_number == -1):
 
+            print("No confirmation codes.")
+        else:
 
+            print(f'Exchange Confirmation Code: {exchange_number}')
+    else:
+
+        if(exchange_number == -1):
+            print(f'Return Confirmation Code: {confirmation_number}')
+        
+        else:
+            print(f'Return Confirmation Code: {confirmation_number}\nExchange Confirmation Number: {exchange_number}')
     
 
 
-
-user_choice()
+if(int(age) >= 18):
+    user_choice()
+else:
+    print(f'You cannot exchange or return an item if you are younger than 18 years old.')
 
